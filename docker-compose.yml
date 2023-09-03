@@ -1,0 +1,20 @@
+version: '3.8'
+
+networks:
+  go:
+    driver: bridge
+
+services:
+  go:
+    image: go
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: go
+    volumes:
+      - .:/go/src/app
+    ports:
+      - 8080:8080
+    command: 
+    networks:
+      - go
